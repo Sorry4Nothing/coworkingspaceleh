@@ -14,7 +14,7 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping("/games")
-@Tag(name = "Games", description = "Game management endpoints")
+@Tag(name = "Bookings", description = "Booking management endpoints")
 public class BookingController {
 
     private final BookingService bookingService;
@@ -51,8 +51,8 @@ public class BookingController {
     }
 
     @Operation(
-            summary = "Create a new game",
-            description = "Creates a new game in database.",
+            summary = "Create a new Booking",
+            description = "Creates a new Booking in database.",
             security = {@SecurityRequirement(name = "JWT Auth")}
     )
     @PreAuthorize("hasRole('ADMIN')")
