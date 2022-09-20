@@ -4,7 +4,6 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import com.lehmann.coworkingspaceleh.model.BookingEntity;
-import com.lehmann.coworkingspaceleh.service.CategoryService;
 import com.lehmann.coworkingspaceleh.service.BookingService;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
@@ -18,11 +17,8 @@ import java.util.UUID;
 public class BookingController {
 
     private final BookingService bookingService;
-    private final CategoryService categoryService;
-
-    BookingController(BookingService bookingService, CategoryService categoryService) {
+    BookingController(BookingService bookingService) {
         this.bookingService = bookingService;
-        this.categoryService = categoryService;
     }
 
     @Operation(
@@ -58,7 +54,6 @@ public class BookingController {
     @PreAuthorize("hasRole('ADMIN')")
     @PostMapping
     BookingEntity create(@RequestBody BookingEntity entity) {
-        entity.setCategory(categoryService.loadOne(entity.getCategoryId()));
         return bookingService.create(entity);
     }
 

@@ -34,10 +34,6 @@ public class BookingEntity implements Serializable {
     @Column(name = "name", nullable = false)
     private String name;
 
-    @ManyToOne
-    @JoinColumn(name = "category", nullable = false)
-    @Schema(accessMode = Schema.AccessMode.READ_ONLY)
-    private CategoryEntity category;
 
     @Transient
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
