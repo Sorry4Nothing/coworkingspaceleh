@@ -2,7 +2,7 @@ package com.lehmann.coworkingspaceleh;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.lehmann.coworkingspaceleh.model.GameEntity;
+import com.lehmann.coworkingspaceleh.model.BookingEntity;
 import com.lehmann.coworkingspaceleh.security.JwtServiceHMAC;
 import lombok.val;
 import org.junit.jupiter.api.Test;
@@ -21,7 +21,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest
 @AutoConfigureMockMvc
-public class GameControllerIntegrationTest {
+public class BookingControllerIntegrationTest {
 
     @Autowired
     private MockMvc mockMvc;
@@ -41,7 +41,7 @@ public class GameControllerIntegrationTest {
                 .andDo(print())
                 .andReturn();
 
-        List<GameEntity> games = objectMapper.readValue(response.getResponse().getContentAsString(), new TypeReference<>() {});
+        List<BookingEntity> games = objectMapper.readValue(response.getResponse().getContentAsString(), new TypeReference<>() {});
 
         assertEquals(3, games.size());
     }
