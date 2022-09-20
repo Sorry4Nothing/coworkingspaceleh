@@ -10,11 +10,11 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 
-	<groupId>io.viascom</groupId>
-	<artifactId>spring-boot-crud-example</artifactId>
+	<groupId>com.lehmann</groupId>
+	<artifactId>cowrkingspaceleh</artifactId>
 	<version>1.0.0</version>
-	<name>spring-boot-crud-example</name>
-	<description>Demo CRUD project for Spring Boot</description>
+	<name>coworkingspaceleh</name>
+	<description>CoWorkingSpace made by Lehmann for Modul 223</description>
 
 	<properties>
 		<java.version>17</java.version>
