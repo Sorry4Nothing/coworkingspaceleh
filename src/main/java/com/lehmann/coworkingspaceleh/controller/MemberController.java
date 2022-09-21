@@ -1,9 +1,11 @@
 package com.lehmann.coworkingspaceleh.controller;
 
 import com.lehmann.coworkingspaceleh.model.MemberEntity;
+import com.lehmann.coworkingspaceleh.repository.MemberRepository;
 import com.lehmann.coworkingspaceleh.service.MemberService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import lombok.val;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -45,8 +47,10 @@ public class MemberController {
             summary = "update client",
             description = "update a specific client"
     )
-    @PutMapping("/member{id}")
-    ResponseEntity<MemberEntity> updateUserById(@PathVariable(name = "id") UUID memberId, @RequestBody MemberEntity member){
+    @PutMapping("/{id}")
+    ResponseEntity<MemberEntity> updateUserById(@PathVariable(name = "id") UUID memberId, @RequestBody MemberEntity updatedMember){
+        val member = memberService.oneById(memberId);
+        member.setNewsletter(updatedMember.getNewsletter());
         return ResponseEntity.ok(this.memberService.update(member, memberId));
     }
 

@@ -4,6 +4,7 @@ import com.lehmann.coworkingspaceleh.exception.MemberNotFoundException;
 import com.lehmann.coworkingspaceleh.model.MemberEntity;
 import com.lehmann.coworkingspaceleh.repository.MemberRepository;
 import lombok.extern.slf4j.Slf4j;
+import lombok.val;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -36,8 +37,6 @@ public class MemberService {
     @Transactional
     public MemberEntity update(MemberEntity member, UUID memberId){
         log.info("Update client by their Id {}", memberId);
-        this.oneById(memberId);
-        member.setId(memberId);
         return this.memberRepository.save(member);
     }
 
