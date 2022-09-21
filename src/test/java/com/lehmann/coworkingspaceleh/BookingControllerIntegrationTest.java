@@ -36,7 +36,7 @@ public class BookingControllerIntegrationTest {
     public void allGamesShouldBeReturnedFromService() throws Exception {
         val accessToken = jwtService.createNewJWT(UUID.randomUUID().toString(), "9135f12e-1b66-4ee6-bbae-df37303cc154", "admin", List.of("ADMIN"));
 
-        val response = mockMvc.perform(get("/games").header("Authorization", "Bearer " + accessToken))
+        val response = mockMvc.perform(get("/bookings").header("Authorization", "Bearer " + accessToken))
                 .andExpect(status().isOk())
                 .andDo(print())
                 .andReturn();
