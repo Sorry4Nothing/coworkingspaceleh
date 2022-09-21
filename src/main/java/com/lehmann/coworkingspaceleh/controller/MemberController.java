@@ -1,7 +1,6 @@
 package com.lehmann.coworkingspaceleh.controller;
 
 import com.lehmann.coworkingspaceleh.model.MemberEntity;
-import com.lehmann.coworkingspaceleh.repository.MemberRepository;
 import com.lehmann.coworkingspaceleh.service.MemberService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;

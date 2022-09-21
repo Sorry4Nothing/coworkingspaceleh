@@ -1,5 +1,8 @@
 # CoWorking Space Lehmann
 
+## How to set up the Project
+* 
+
 
 ## Useful links:
 * **API documentation:** <http://localhost:8080/swagger-ui/index.html>
