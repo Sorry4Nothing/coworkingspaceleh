@@ -16,9 +16,38 @@ Authorization: Bearer {{jwt}}
 Content-Type: application/json
 
 {
-  "name": "Jessy Jones",
-  "booking_type": "AFTERNOON",
-  "status": "PENDING"
+    "id": "69d61dd9-4a1c-49b1-8804-e0e2ee10e423",
+    "name": "Jessy Jones",
+    "booking_type": "AFTERNOON",
+    "status": "PENDING"
+}
+
+###
+
+// Approve a new booking
+PUT http://localhost:8080/bookings/413e2297-b84b-42ef-97ed-16a8a9d1d671
+Authorization: Bearer {{jwt}}
+Content-Type: application/json
+
+{
+    "id": "413e2297-b84b-42ef-97ed-16a8a9d1d671",
+    "name": "Andreas Seidl",
+    "booking_type": "DAY",
+    "status": "APPROVED"
+}
+
+###
+
+// Deny a new booking
+PUT http://localhost:8080/bookings/413e2297-b84b-42ef-97ed-16a8a9d1d671
+Authorization: Bearer {{jwt}}
+Content-Type: application/json
+
+{
+    "id": "413e2297-b84b-42ef-97ed-16a8a9d1d671",
+    "name": "Andreas Seidl",
+    "booking_type": "DAY",
+    "status": "DENIED"
 }
 
 ###

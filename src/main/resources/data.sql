@@ -1,5 +1,5 @@
 INSERT INTO BOOKING (id, name, booking_type, status)
-VALUES ('413e2297-b84b-42ef-97ed-16a8a9d1d671', 'Andreas Seidl', ' DAY ', 'APPROVED'),
+VALUES ('413e2297-b84b-42ef-97ed-16a8a9d1d671', 'Andreas Seidl', ' DAY ', 'PENDING'),
        ('b8160463-01a0-4c7a-bd46-5b3716dbe4c6', 'Ralf Montoya', 'AFTERNOON', 'APPROVED'),
        ('3c13c533-fbac-4881-b94d-f95cb2ef16c8', 'Betty McFarlane', 'MORNING', 'APPROVED');
 
