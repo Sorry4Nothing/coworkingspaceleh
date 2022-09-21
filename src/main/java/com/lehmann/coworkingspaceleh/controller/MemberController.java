@@ -7,6 +7,7 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.val;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -29,6 +30,7 @@ public class MemberController {
             summary = "get all clients",
             description = "return all clients"
     )
+    @PreAuthorize("hasRole('ADMIN')")
     @GetMapping
     ResponseEntity<List<MemberEntity>> getMembers() {
         return ResponseEntity.ok(this.memberService.all());
@@ -38,6 +40,7 @@ public class MemberController {
             summary = "get clients by Id",
             description = "return client by id"
     )
+    @PreAuthorize("hasRole('ADMIN')")
     @GetMapping("/{id}")
     ResponseEntity<MemberEntity> getMemberById(@PathVariable(name = "id") UUID memberId){
         return ResponseEntity.ok(this.memberService.oneById(memberId));
