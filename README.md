@@ -1,5 +1,8 @@
 # CoWorking Space Lehmann
 
+## Witch Java version to use
+Use Java 17, not sure if other version work too
+
 ## How to set up the Project
 * **Git clone:** You either clone the repository from the GitHub
 * **Unpack the Zip:** extract the ZIP-File and import the Code
