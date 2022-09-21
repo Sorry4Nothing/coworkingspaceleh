@@ -20,27 +20,22 @@ public class MemberService {
         this.memberRepository = memberRepository;
     }
 
-    public MemberEntity create(MemberEntity member){
-        log.info("Executing create new client with email {}", member.getEmail());
-        return this.memberRepository.save(member);
-    }
-
     public List<MemberEntity> all(){
         log.info("Executing get all clients from database");
         return (List<MemberEntity>) this.memberRepository.findAll();
     }
 
     public MemberEntity oneById(UUID memberId){
-        log.info("Executing get single client by their id {}", memberId);
+        log.info("Executing get a specific client by their id {}", memberId);
         return this.memberRepository.findById(memberId)
                 .orElseThrow(
-                        () -> new MemberNotFoundException("client with id " + memberId + " not found" )
+                        () -> new MemberNotFoundException("Client with id " + memberId + " not found" )
                 );
     }
 
     @Transactional
     public MemberEntity update(MemberEntity member, UUID memberId){
-        log.info("Execute update clients by their Id {}", memberId);
+        log.info("Update client by their Id {}", memberId);
         this.oneById(memberId);
         member.setId(memberId);
         return this.memberRepository.save(member);

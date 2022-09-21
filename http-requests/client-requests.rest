@@ -5,13 +5,13 @@ Authorization: Bearer {{jwt}}
 ###
 
 // Get one specific booking
-GET http://localhost:8080/bookings/413e2297-b84b-42ef-97ed-16a8a9d1d671
+GET http://localhost:8080/bookings/b8160463-01a0-4c7a-bd46-5b3716dbe4c6
 Authorization: Bearer {{jwt}}
 
 ###
 
 // Create a new booking
-POST http://localhost:8080/bookings/
+POST http://localhost:8080/bookings
 Authorization: Bearer {{jwt}}
 Content-Type: application/json
 
@@ -24,7 +24,7 @@ Content-Type: application/json
 ###
 
 // Update one specific booking
-PUT http://localhost:8080/bookings/413e2297-b84b-42ef-97ed-16a8a9d1d671
+PUT http://localhost:8080/bookings/b8160463-01a0-4c7a-bd46-5b3716dbe4c6
 Authorization: Bearer {{jwt}}
 
 {
@@ -37,7 +37,7 @@ Authorization: Bearer {{jwt}}
 ###
 
 // Delete one specific and existing booking
-DELETE http://localhost:8080/bookings/413e2297-b84b-42ef-97ed-16a8a9d1d671
+DELETE http://localhost:8080/bookings/b8160463-01a0-4c7a-bd46-5b3716dbe4c6
 Authorization: Bearer {{jwt}}
 
 ###
