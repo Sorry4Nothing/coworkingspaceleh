@@ -20,7 +20,7 @@ import java.util.UUID;
 @Setter
 @ToString
 @RequiredArgsConstructor
-@Entity(name = "GAME")
+@Entity(name = "BOOKING")
 @DynamicUpdate
 public class BookingEntity implements Serializable {
 
@@ -34,11 +34,11 @@ public class BookingEntity implements Serializable {
     @Column(name = "name", nullable = false)
     private String name;
 
+    @Column(name = "booking_type", nullable = false)
+    private Enum booking_type;
 
-    @Transient
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-    @Schema(accessMode = Schema.AccessMode.WRITE_ONLY)
-    private UUID categoryId;
+    @Column(name = "status", nullable = false)
+    private Enum status;
 
     @Override
     public boolean equals(Object o) {

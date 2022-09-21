@@ -1,7 +1,7 @@
 package com.lehmann.coworkingspaceleh.service;
 
 import com.lehmann.coworkingspaceleh.exception.BookingNotFoundException;
-import com.lehmann.coworkingspaceleh.repository.BookingRepository;
+import com.lehmann.coworkingspaceleh.repository.BookRepository;
 import com.lehmann.coworkingspaceleh.model.BookingEntity;
 import lombok.extern.slf4j.Slf4j;
 import lombok.val;
@@ -14,43 +14,43 @@ import java.util.UUID;
 @Slf4j
 public class BookingService {
 
-    private final BookingRepository bookingRepository;
+    private final BookRepository bookRepository;
 
-    BookingService(BookingRepository bookingRepository) {
-        this.bookingRepository = bookingRepository;
+    BookingService(BookRepository bookRepository) {
+        this.bookRepository = bookRepository;
     }
 
     public List<BookingEntity> loadAll() {
-        log.info("Executing find all games ...");
-        return bookingRepository.findAll();
+        log.info("Executing find all bookings ...");
+        return bookRepository.findAll();
     }
 
-    public List<BookingEntity> loadAllByName(String gameName) {
-        log.info("Executing find games by name '" + gameName + "' ...");
-        return bookingRepository.findAllByName(gameName);
+    public List<BookingEntity> loadAllByName(String bookName) {
+        log.info("Executing find bookings by name '" + bookName + "' ...");
+        return bookRepository.findAllByName(bookName);
     }
 
-    public BookingEntity loadOne(UUID gameId) {
-        log.info("Executing find game with id " + gameId + " ...");
-        return bookingRepository.findById(gameId).orElseThrow(() -> new BookingNotFoundException("Game not found with id " + gameId));
+    public BookingEntity loadOne(UUID bookId) {
+        log.info("Executing find bookings with id " + bookId + " ...");
+        return bookRepository.findById(bookId).orElseThrow(() -> new BookingNotFoundException("Booking not found with id " + bookId));
     }
 
     public BookingEntity create(BookingEntity game) {
-        log.info("Executing create game with id " + game.getId() + " ...");
-        return bookingRepository.save(game);
+        log.info("Executing create booking with id " + game.getId() + " ...");
+        return bookRepository.save(game);
     }
 
-    public BookingEntity update(BookingEntity updatedGame) {
-        log.info("Executing update game with id " + updatedGame.getId() + " ...");
-        val gameId = updatedGame.getId();
-        bookingRepository.findById(gameId).orElseThrow(() -> new BookingNotFoundException("Game not found with id " + gameId));
-        return bookingRepository.save(updatedGame);
+    public BookingEntity update(BookingEntity updatedBooking) {
+        log.info("Executing update booking with id " + updatedBooking.getId() + " ...");
+        val bookingId = updatedBooking.getId();
+        bookRepository.findById(bookingId).orElseThrow(() -> new BookingNotFoundException("Booking not found with id " + bookingId));
+        return bookRepository.save(updatedBooking);
     }
 
-    public void delete(UUID gameId) {
-        log.info("Executing delete game with id " + gameId + " ...");
-        bookingRepository.findById(gameId).orElseThrow(() -> new BookingNotFoundException("Game not found with id " + gameId));
-        bookingRepository.deleteById(gameId);
+    public void delete(UUID bookingId) {
+        log.info("Executing delete booking with id " + bookingId + " ...");
+        bookRepository.findById(bookingId).orElseThrow(() -> new BookingNotFoundException("Booking not found with id " + bookingId));
+        bookRepository.deleteById(bookingId);
     }
 
 }
