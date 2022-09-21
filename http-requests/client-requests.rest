@@ -74,3 +74,9 @@ Authorization: Bearer {{jwt}}
 // List all members
 GET http://localhost:8080/member
 Authorization: Bearer {{jwt}}
+
+###
+
+// Delete one specific and existing Member
+DELETE http://localhost:8080/member/f6b24684-fff3-456d-bba7-fb6b376d678f
+Authorization: Bearer {{jwt}}

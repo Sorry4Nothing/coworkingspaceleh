@@ -45,7 +45,7 @@ public class MemberController {
             summary = "update client",
             description = "update a specific client"
     )
-    @PutMapping("/{id}")
+    @PutMapping("/member{id}")
     ResponseEntity<MemberEntity> updateUserById(@PathVariable(name = "id") UUID memberId, @RequestBody MemberEntity member){
         return ResponseEntity.ok(this.memberService.update(member, memberId));
     }
