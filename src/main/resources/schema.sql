@@ -3,8 +3,8 @@ CREATE TABLE BOOKING
 (
     id           UUID,
     name         VARCHAR(50) NOT NULL,
-    booking_type ENUM('MORNING','AFTERNOON','DAY') NOT NULL,
-    status       ENUM('APPROVED', 'DECLINED', 'PENDING') NOT NULL,
+    booking_type varchar(255) NOT NULL,
+    status       varchar(255) NOT NULL,
 
     PRIMARY KEY (id)
 );
